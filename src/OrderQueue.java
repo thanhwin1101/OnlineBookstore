@@ -36,11 +36,11 @@ public class OrderQueue {
                 CustomArrayList<BookItem> items = curr.data.getBooks();
                 for (int i = 0; i < items.size(); i++) {
                     BookItem book = items.get(i);
-                    bookManager.returnBook(book.getTitle(), book.getQuantity());  // Return the book to the inventory
+                    bookManager.returnBook(book.getTitle(), book.getQuantity()); 
                 }
                 curr.data.setStatus("Cancelled");
 
-                // Ensure that the order is only added once to the transaction history
+    
                 if (!transactionHistory.containsOrder(orderId)) {
                     transactionHistory.push(curr.data);
                     System.out.println("Order " + orderId + " transaction added to history.");
