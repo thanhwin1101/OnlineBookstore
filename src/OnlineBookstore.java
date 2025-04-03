@@ -5,7 +5,6 @@ public class OnlineBookstore {
     private LinkedStackADT transactionHistory = new LinkedStackADT();
 
     public void run() {
-        // Default books
         bookManager.addBook(new BookItem("The Hobbit", "J.R.R. Tolkien", 10));
         bookManager.addBook(new BookItem("1984", "George Orwell", 8));
         bookManager.addBook(new BookItem("To Kill a Mockingbird", "Harper Lee", 12));
@@ -108,8 +107,8 @@ public class OnlineBookstore {
                         int qty = scanner.nextInt();
                         BookItem selected = bookManager.getBook(idx);
                         if (selected != null && selected.getQuantity() >= qty) {
-                            selected.setQuantity(selected.getQuantity() - qty);  // Reduce the quantity in the inventory
-                            order.addBook(new BookItem(selected.getTitle(), selected.getAuthor(), qty));  // Add to the cart
+                            selected.setQuantity(selected.getQuantity() - qty);  
+                            order.addBook(new BookItem(selected.getTitle(), selected.getAuthor(), qty));  
                         } else {
                             System.out.println("Invalid or insufficient stock.");
                         }
@@ -118,7 +117,7 @@ public class OnlineBookstore {
                         orderQueue.enqueue(order);
                         transactionHistory.push(order);
                         System.out.println("Order placed! ID: " + order.getOrderId());
-                        order.displayBooks();  // Display books in the order
+                        order.displayBooks(); 
                     }
                 }
                 case 4 -> {
