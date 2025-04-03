@@ -28,24 +28,23 @@ public class Order {
     public void addBook(BookItem book) {
         boolean bookExists = false;
 
-        // Check if the book already exists in the order by comparing title and author
+     
         for (int i = 0; i < books.size(); i++) {
             BookItem existingBook = books.get(i);
             if (existingBook.getTitle().equalsIgnoreCase(book.getTitle()) &&
                     existingBook.getAuthor().equalsIgnoreCase(book.getAuthor())) {
-                // If the book exists, update the quantity in the order
+              
                 existingBook.setQuantity(existingBook.getQuantity() + book.getQuantity());
                 bookExists = true;
                 break;
             }
         }
 
-        // If the book doesn't exist in the order, add it to the list
         if (!bookExists) {
             books.add(book);
         }
 
-        // Sort the books in the order after adding
+ 
         displayBooksSorted();
     }
 
@@ -61,9 +60,9 @@ public class Order {
         return orderId;
     }
 
-    // Sort books in the order alphabetically by title
+ 
     public void displayBooksSorted() {
-        // Insertion Sort by Title (Case-insensitive)
+ 
         for (int i = 1; i < books.size(); i++) {
             BookItem key = books.get(i);
             int j = i - 1;
@@ -74,11 +73,11 @@ public class Order {
             books.set(j + 1, key);
         }
 
-        // After sorting, display the books in the order
+
         displayBooks();
     }
 
-    // Display books in the order
+
     public void displayBooks() {
         System.out.println("=== Books in the Order ===");
         for (int i = 0; i < books.size(); i++) {
@@ -86,7 +85,7 @@ public class Order {
         }
     }
 
-    // Override toString method to print meaningful Order details
+
     @Override
     public String toString() {
         StringBuilder orderDetails = new StringBuilder();
